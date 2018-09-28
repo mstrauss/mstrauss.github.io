@@ -47,15 +47,30 @@ continuously...
 * [PyTables][pytables] supports (at least) parallel reading. See
   [here][pytables-parallel] for how it works.
 
-* DO NOT use Python's
-  [warnings](https://docs.python.org/3/library/warnings.html) system
-  with _pymp_.  They do not like each other and child processes may
-  hang if they raise a warning, e.g. used together with
-  'simplefilter("error", ...)'.
+<!-- * DO NOT use Python's -->
+<!--   [warnings](https://docs.python.org/3/library/warnings.html) system -->
+<!--   with _pymp_.  They do not like each other and child processes may -->
+<!--   hang if they raise a warning, e.g. used together with -->
+<!--   'simplefilter("error", ...)'. -->
   
-<!-- * You have to take care to handle exceptions in child processes, -->
-<!--   otherwise they may hang.  See this [excellent -->
-<!--   post](https://stackoverflow.com/a/19929767/215431) for an overview. -->
+* You have to take care to handle exceptions in child processes,
+  otherwise they may hang.  See this [excellent
+  post](https://stackoverflow.com/a/19929767/215431) for an overview.
+  
+  But it is easiest to not allow any exceptions"to spill out" from the
+  subprocesses.  For example:
+  
+  ```python
+  import traceback
+  def subprocess():
+    try:
+	  # do something
+    except Exception as e:
+      print("EXCEPTION:", e)
+      traceback.print_exc()
+	finally:
+	  # clean up
+  ```
 
 
 [ep]: https://en.wikipedia.org/wiki/Embarrassingly_parallel
