@@ -40,8 +40,8 @@ more...
 
 ## Multiprocessing
 
-* DO NOT use sklearn's joblib.  This library ["has
-  issues"](joblib-issues).  Instead go for [pymp][pymp] to get your
+* DO NOT use sklearn's joblib.  This library "has
+  issues".  Instead go for [pymp][pymp] to get your
   code running [embarrassingly parallel][ep].
   
 * [PyTables][pytables] supports (at least) parallel reading. See
