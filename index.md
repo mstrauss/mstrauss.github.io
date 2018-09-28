@@ -44,6 +44,8 @@ more...
   issues"](joblib-issues).  Instead go for [pymp][pymp] to get your
   code running [embarrassingly parallel][ep].
   
+* [PyTables][pytables] supports (at least) parallel reading. See
+  [here][pytables-parallel] for how it works.
 
 
 [ep]: https://en.wikipedia.org/wiki/Embarrassingly_parallel
@@ -52,6 +54,7 @@ more...
 [postgres]: https://www.postgresql.org/
 [pymp]: https://github.com/classner/pymp
 [pytables]: https://www.pytables.org/
+[pytables-parallel]: https://www.pytables.org/cookbook/threading.html
 [venv]: https://docs.python.org/3/tutorial/venv.html
 
 
