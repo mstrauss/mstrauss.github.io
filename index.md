@@ -10,8 +10,8 @@ date:   2018-09-26
 <!-- ## General tips about using Python: -->
 
 These are my own very personal and opinionated tips about how (not) to
-work with the Python ecosystem.  I will update this page as I learn
-more...
+work within the Python ecosystem.  I will update this page
+continuously...
 
 ## Maintaining a sane (=controlled) software environment
 
@@ -47,6 +47,16 @@ more...
 * [PyTables][pytables] supports (at least) parallel reading. See
   [here][pytables-parallel] for how it works.
 
+* DO NOT use Python's
+  [warnings](https://docs.python.org/3/library/warnings.html) system
+  with _pymp_.  They do not like each other and child processes may
+  hang if they raise a warning, e.g. used together with
+  'simplefilter("error", ...)'.
+  
+<!-- * You have to take care to handle exceptions in child processes, -->
+<!--   otherwise they may hang.  See this [excellent -->
+<!--   post](https://stackoverflow.com/a/19929767/215431) for an overview. -->
+
 
 [ep]: https://en.wikipedia.org/wiki/Embarrassingly_parallel
 [hdf5]: https://en.wikipedia.org/wiki/Hierarchical_Data_Format
@@ -56,6 +66,3 @@ more...
 [pytables]: https://www.pytables.org/
 [pytables-parallel]: https://www.pytables.org/cookbook/threading.html
 [venv]: https://docs.python.org/3/tutorial/venv.html
-
-
-{% include_relative footer.md %}
