@@ -91,12 +91,12 @@ continuously...
 
   def producer_fun(job_queue, data_chunks):
       for chunk in data_chunks:
-          job.queue.put(chunk)
+          job_queue.put(chunk)
 
   def consumer_fun(job_queue):
       while True:
           try:
-              chunk = jobs.get(timeout=5)
+              chunk = job_queue.get(timeout=5)
               r = compute(chunk)
               if r is None:
                   sleep(3)
@@ -119,7 +119,7 @@ continuously...
 
       # define the workers (consumers) and the producer
       consumers = list(
-        repeat(mp.Process(target=producer_fun, args=(jobs,)),
+        repeat(mp.Process(target=consumer_fun, args=(jobs,)),
                times=os.cpu_count()))
       producer = Process(target=producer_fun, args=(jobs, data))
 
