@@ -2,7 +2,7 @@
 layout: home
 title:  "Regarding Python and 'Big Data'"
 # permalink: python-123
-date:   2018-09-26
+date:   2019-05-13
 ---
 
 
@@ -22,7 +22,9 @@ continuously...
 
 * Use [Pipenv](https://pipenv.readthedocs.io/en/latest/) to manage
   ["virtual environments"][venv] and keep control of the package
-  revisions and dependencies.  _Pipenv_ plays nice together with _pyenv_.
+  revisions and dependencies.  _Pipenv_ plays nice together with
+  _pyenv_ and can also export _requirements.txt_ to be used e.g. in
+  [binder](https://mybinder.org/).
 
 
 ## Persistence
